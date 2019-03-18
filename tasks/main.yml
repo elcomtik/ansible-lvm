@@ -1,12 +1,7 @@
 ---
 
-- name: INCLUDE | Debian family
-  include: debian.yml
-  when: ansible_os_family == "Debian"
-
-- name: INCLUDE | RedHat family
-  include: centos.yml
-  when: ansible_os_family == "RedHat"
+- name: INCLUDE_TASKS | OS config
+  include_tasks: "{{ ansible_os_family }}.yml"
 
 - name: INCLUDE | Apply
   include: manage_lvm.yml
