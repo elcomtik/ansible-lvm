@@ -1,7 +1,7 @@
 ---
 
 - name: YUM | Install lvm
-  yum: >
+  ansible.builtin.yum: >
     name={{ item }}
     state=present
   with_items:
@@ -10,10 +10,10 @@
     - lvm2
 
 - name: COMMAND | checking for scsi devices
-  command: sg_scan
+  ansible.builtin.command: sg_scan
   register: scsi_devices
   changed_when: false
 
 - name: COMMAND | Rescanning for new disks
-  command: /usr/bin/rescan-scsi-bus.sh
+  ansible.builtin.command: /usr/bin/rescan-scsi-bus.sh
   changed_when: false

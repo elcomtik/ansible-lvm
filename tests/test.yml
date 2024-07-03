@@ -23,8 +23,8 @@
     - ../../
   post_tasks:
     - name: COMMAND | lvdisplay
-      command: lvdisplay
+      ansible.builtin.command: lvdisplay
       changed_when: false
     - name: COMMAND | vgdisplay
-      command: vgdisplay
+      ansible.builtin.command: vgdisplay
       changed_when: false
